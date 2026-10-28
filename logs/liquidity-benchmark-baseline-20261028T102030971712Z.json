@@ -1,0 +1,26 @@
+{
+  "label": "baseline",
+  "dataset": "C:\\APEX\\data\\historical\\XAUUSDm_M5_20251025T000000Z_20261025T000000Z.csv",
+  "dataset_sha256": "ae7e9453de78ebe3f8996aca64c91f55a79b8e181907338dc5cc9b4f921b0073",
+  "candle_count": 70588,
+  "first_timestamp": "2025-10-26T22:05:00+00:00",
+  "last_timestamp": "2026-10-23T20:55:00+00:00",
+  "parameters": {
+    "expansion": {
+      "candle_duration_seconds": 300.0,
+      "horizons_seconds": [
+        300.0,
+        900.0,
+        1800.0
+      ],
+      "atr_multiples": [
+        1.0,
+        2.0,
+        3.0
+      ],
+      "structure": {
+        "left_lookback": 2,
+        "right_lookback": 2,
+        "equal_policy": "strict",
+        "break_basis": "close",
+        "candle_duration": 

@@ -1,0 +1,17 @@
+{
+  "pid": 1224,
+  "exit_code": 1,
+  "sample_interval_seconds": 15,
+  "monitor_seconds": 20852.019569396973,
+  "initial": {
+    "working_set_bytes": 2514944,
+    "peak_working_set_bytes": 3076096,
+    "private_usage_bytes": 806912
+  },
+  "final": {
+    "working_set_bytes": 32768,
+    "peak_working_set_bytes": 3076096,
+    "private_usage_bytes": 77824
+  },
+  "peak_increase_bytes": 0
+}

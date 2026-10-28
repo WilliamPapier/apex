@@ -1,0 +1,11 @@
+{
+  "exit_code": 0,
+  "runtime_seconds": 9957.592,
+  "command": [
+    "C:\\APEX\\.venv\\Scripts\\python.exe",
+    "-m",
+    "research.run_suite",
+    "data\\historical\\XAUUSDm_M5_20251025T000000Z_20261025T000000Z.csv"
+  ],
+  "output": "C:\\APEX\\logs\\research-full-year-cli-20261027T201522.log"
+}

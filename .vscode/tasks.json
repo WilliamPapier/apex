@@ -1,0 +1,30 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "APEX full-year offline research",
+			"type": "shell",
+			"command": "C:\\APEX\\.venv\\Scripts\\python.exe",
+			"args": [
+				"-m",
+				"research.run_suite",
+				"data\\historical\\XAUUSDm_M5_20251025T000000Z_20261025T000000Z.csv"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "APEX liquidity-structure benchmark",
+			"type": "shell",
+			"command": "C:\\APEX\\.venv\\Scripts\\python.exe",
+			"args": [
+				"-m",
+				"tools.benchmark_liquidity_structure",
+				"--label",
+				"manual"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		}
+	]
+}

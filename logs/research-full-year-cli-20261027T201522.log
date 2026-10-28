@@ -1,0 +1,226 @@
+Archived report: C:\APEX\logs\research-full-year-20261027T225430841617Z.txt
+generated_at: 2026-10-27T22:54:30.841617+00:00
+run_id: 20261027T225430841617Z
+run_runtime_seconds: 9523.104
+run_archive: logs\research-full-year-20261027T225430841617Z.txt
+
+APEX offline research suite (research only; no trading, no broker connection)
+source: data\historical\XAUUSDm_M5_20251025T000000Z_20261025T000000Z.csv
+candles: 70588  range: 2025-10-26T22:05:00+00:00 -> 2026-10-23T20:55:00+00:00
+
+== price_expansion_momentum [ok] ==
+635292 labels over 70588 candles; descriptive findings only.
+Expansion event base rates (labels use FUTURE candles: outcomes only, never predictors):
+   5 min, 1 ATR: labelled=70314 expanded=15929 base_rate=22.7% non_overlapping=15929 continuation=12704 retracement=2561 reversal=505 | excluded: atr_unavailable=13 incomplete=1 gap=260
+   5 min, 2 ATR: labelled=70314 expanded=1780 base_rate=2.5% non_overlapping=1780 continuation=1531 retracement=212 reversal=27 | excluded: atr_unavailable=13 incomplete=1 gap=260
+   5 min, 3 ATR: labelled=70314 expanded=426 base_rate=0.6% non_overlapping=426 continuation=370 retracement=48 reversal=5 | excluded: atr_unavailable=13 incomplete=1 gap=260
+  15 min, 1 ATR: labelled=69796 expanded=44104 base_rate=63.2% non_overlapping=17926 continuation=28535 retracement=10565 reversal=4686 | excluded: atr_unavailable=13 incomplete=3 gap=776
+  15 min, 2 ATR: labelled=69796 expanded=11621 base_rate=16.6% non_overlapping=5860 continuation=9407 retracement=1860 reversal=338 | excluded: atr_unavailable=13 incomplete=3 gap=776
+  15 min, 3 ATR: labelled=69796 expanded=3388 base_rate=4.9% non_overlapping=1827 continuation=2906 retracement=438 reversal=40 | excluded: atr_unavailable=13 incomplete=3 gap=776
+  30 min, 1 ATR: labelled=69020 expanded=59510 base_rate=86.2% non_overlapping=11050 continuation=32536 retracement=15396 reversal=11193 | excluded: atr_unavailable=13 incomplete=6 gap=1549
+  30 min, 2 ATR: labelled=69020 expanded=25943 base_rate=37.6% non_overlapping=6572 continuation=18875 retracement=5459 reversal=1583 | excluded: atr_unavailable=13 incomplete=6 gap=1549
+  30 min, 3 ATR: labelled=69020 expanded=10431 base_rate=15.1% non_overlapping=3075 continuation=8378 retracement=1787 reversal=262 | excluded: atr_unavailable=13 incomplete=6 gap=1549
+
+Baseline flags at 2 ATR, first vs second chronological half (untuned thresholds; the second half is later data, not a tuned out-of-sample test):
+   5 min compressed_range     precision 1.0%/0.5%  recall 3.0%/1.7%  lift 0.36/0.22  false_alarms/h 0.99/0.91  median_lead 0:05:00  not consistent across halves
+   5 min tick_volume_spike    precision 9.7%/8.9%  recall 18.3%/17.8%  lift 3.65/3.69  false_alarms/h 0.54/0.53  median_lead 0:05:00  lift >= 1.1 in both halves
+   5 min large_closed_candle  precision 7.3%/6.3%  recall 29.5%/27.7%  lift 2.76/2.62  false_alarms/h 1.19/1.19  median_lead 0:05:00  lift >= 1.1 in both halves
+   5 min pin_bar              precision 2.3%/2.2%  recall 13.8%/13.9%  lift 0.85/0.91  false_alarms/h 1.90/1.81  median_lead 0:05:00  not consistent across halves
+   5 min recent_sweep         precision 2.7%/2.4%  recall 99.5%/100.0%  lift 1.00/1.00  false_alarms/h 11.60/11.71  median_lead 0:05:00  not consistent across halves
+   5 min recent_break         precision 2.8%/2.5%  recall 93.6%/93.9%  lift 1.04/1.05  false_alarms/h 10.49/10.48  median_lead 0:05:00  not consistent across halves
+  15 min compressed_range     precision 9.3%/7.9%  recall 4.5%/3.6%  lift 0.55/0.48  false_alarms/h 0.88/0.82  median_lead 0:15:00  not consistent across halves
+  15 min tick_volume_spike    precision 36.6%/37.8%  recall 11.0%/11.2%  lift 2.17/2.30  false_alarms/h 0.38/0.36  median_lead 0:10:00  lift >= 1.1 in both halves
+  15 min large_closed_candle  precision 28.2%/28.6%  recall 17.9%/18.5%  lift 1.67/1.74  false_alarms/h 0.92/0.91  median_lead 0:10:00  lift >= 1.1 in both halves
+  15 min pin_bar              precision 16.6%/15.6%  recall 16.0%/14.6%  lift 0.99/0.95  false_alarms/h 1.62/1.56  median_lead 0:10:00  not consistent across halves
+  15 min recent_sweep         precision 16.9%/16.4%  recall 99.3%/100.0%  lift 1.00/1.00  false_alarms/h 9.91/10.03  median_lead 0:10:00  not consistent across halves
+  15 min recent_break         precision 17.2%/16.8%  recall 91.5%/91.4%  lift 1.02/1.02  false_alarms/h 8.94/8.95  median_lead 0:10:00  not consistent across halves
+  30 min compressed_range     precision 25.9%/24.0%  recall 5.3%/4.6%  lift 0.69/0.64  false_alarms/h 0.68/0.65  median_lead 0:20:00  not consistent across halves
+  30 min tick_volume_spike    precision 59.6%/64.7%  recall 8.0%/8.5%  lift 1.58/1.73  false_alarms/h 0.25/0.21  median_lead 0:15:00  lift >= 1.1 in both halves
+  30 min large_closed_candle  precision 51.0%/52.9%  recall 14.6%/15.2%  lift 1.35/1.41  false_alarms/h 0.63/0.61  median_lead 0:15:00  lift >= 1.1 in both halves
+  30 min pin_bar              precision 37.7%/36.7%  recall 16.2%/15.1%  lift 1.00/0.98  false_alarms/h 1.21/1.17  median_lead 0:20:00  not consistent across halves
+  30 min recent_sweep         precision 37.8%/37.4%  recall 99.3%/100.0%  lift 1.00/1.00  false_alarms/h 7.42/7.51  median_lead 0:20:00  not consistent across halves
+  30 min recent_break         precision 37.9%/37.8%  recall 90.5%/90.5%  lift 1.00/1.01  false_alarms/h 6.71/6.70  median_lead 0:20:00  not consistent across halves
+
+Base rate by calendar month (15 min, 2 ATR):
+  2025-10:16.8%(n=1351)  2025-11:15.9%(n=5403)  2025-12:17.5%(n=5941)  2026-01:17.4%(n=5698)  2026-02:16.0%(n=5428)  2026-03:17.6%(n=6029)  2026-04:16.5%(n=5729)  2026-05:16.7%(n=5703)  2026-06:16.4%(n=5958)  2026-07:16.3%(n=6207)  2026-08:17.6%(n=5757)  2026-09:15.8%(n=5975)  2026-10:15.7%(n=4617)
+Base rate by reporting-only volatility regime (causal short/long realized-vol ratio):
+  contracting:13.0%(n=26010)  expanding:24.7%(n=11190)  normal:16.8%(n=32589)  unavailable:0.0%(n=7)
+Flag lift by regime (flagged count in brackets):
+  compressed_range     contracting:0.65[5182]  expanding:2.70[3]  normal:0.68[235]  unavailable:n/a[0]
+  tick_volume_spike    contracting:2.49[284]  expanding:1.60[2077]  normal:2.03[1097]  unavailable:n/a[0]
+  large_closed_candle  contracting:1.90[563]  expanding:1.33[3570]  normal:1.44[3323]  unavailable:n/a[0]
+  pin_bar              contracting:1.03[5213]  expanding:0.95[1295]  normal:1.02[4516]  unavailable:n/a[1]
+  recent_sweep         contracting:1.00[25915]  expanding:1.00[11155]  normal:1.00[32490]  unavailable:n/a[0]
+  recent_break         contracting:1.01[21562]  expanding:1.00[10995]  normal:1.01[30111]  unavailable:n/a[2]
+limitations:
+  - Overlapping windows: precision/recall count every eligible candle; use the non-overlapping counts for independent events.
+  - Only 13 calendar month(s) of data; lift estimates are descriptive, not proof of a stable signal.
+  - Flag thresholds are fixed, untuned defaults; a lift above 1 is a lead for investigation, not an edge.
+  - Closed-candle flags are available only at the candle close (available_at), never before it.
+  - Key levels, FVG/IFVG, session and news context are not yet modelled; no session boundaries are assumed.
+  - No spread data in the CSVs; excursions are measured on the raw candle prices.
+
+== market_regime [ok] ==
+14 variants, 9 fold(s); pooled OOS spread +15.7pp (z +19.42); does not pass the stated criteria.
+Outcome = expansion of 2 ATR within 15 min (FUTURE label, evaluation only). Regime states use only candles up to each close: percentile of the feature among strictly earlier values (min history 500 values; no full-sample thresholds).
+Rows: candles=70588 labelled=69796 excluded by label status: atr_unavailable=13, gap=776, incomplete=3. Variants tried: 14 (+1 fixed baseline flag).
+Variants, full sample, DESCRIPTIVE (low/mid/high): frequency | median run (candles) | expansion rate | unclassified rows | state changes per 100:
+  atr_level_w48_q33_67           freq 34/31/34  run 11/6/10    exp% 13.5/14.7/17.5   unclass 12880  chg/100 7.5
+  atr_level_w48_q25_75           freq 27/47/26  run 8/10/9     exp% 13.4/14.6/18.2   unclass 12880  chg/100 6.6
+  atr_level_w144_q33_67          freq 34/33/33  run 13/9/23    exp% 14.7/16.6/16.7   unclass 37592  chg/100 5.5
+  atr_level_w144_q25_75          freq 27/49/24  run 10/14/15   exp% 14.6/16.4/16.6   unclass 37592  chg/100 5.3
+  vol_change_q33_67              freq 33/33/34  run 3/2/5      exp% 12.6/15.3/21.7   unclass 5646   chg/100 26.6
+  vol_change_q25_75              freq 25/49/25  run 2/3/4      exp% 12.6/15.4/22.9   unclass 5646   chg/100 24.6
+  efficiency_w12_q33_67          freq 33/33/34  run 2/1/2      exp% 15.3/16.2/18.2   unclass 3582   chg/100 37.7
+  efficiency_w12_q25_75          freq 25/50/25  run 2/2/2      exp% 15.5/15.9/19.0   unclass 3582   chg/100 36.5
+  efficiency_w36_q33_67          freq 33/33/34  run 3/2/3      exp% 15.2/15.3/15.6   unclass 9771   chg/100 23.4
+  efficiency_w36_q25_75          freq 25/50/25  run 2/3/2      exp% 15.0/15.3/15.9   unclass 9771   chg/100 22.6
+  compression_q33_67             freq 34/32/34  run 3/2/5      exp% 10.7/15.5/23.3   unclass 5388   chg/100 24.6
+  compression_q25_75             freq 25/49/26  run 3/3/4      exp% 10.2/15.4/25.0   unclass 5388   chg/100 21.8
+  break_rate_q33_67              freq 30/36/33  run 6/5/10     exp% 14.2/15.9/19.7   unclass 3324   chg/100 13.6
+  break_rate_q25_75              freq 30/46/23  run 6/6/8      exp% 14.2/16.3/20.4   unclass 3324   chg/100 12.8
+  baseline_large_candle          freq 89/0/11   run 6/n/a/1    exp% 15.2/n/a/28.4    unclass 0      chg/100 15.7  (fixed flag: high = large closed candle)
+Chronological walk-forward (9 fold(s); variant chosen on TRAIN rows only; hot = state with the higher TRAIN expansion rate):
+  fold 0 test from 2026-01-25: compression_q25_75 train spread +11.7pp -> test spread +12.9pp (hot n=1314, cold n=1396)
+  fold 1 test from 2026-02-24: compression_q25_75 train spread +13.1pp -> test spread +15.5pp (hot n=1440, cold n=1372)
+  fold 2 test from 2026-03-26: compression_q25_75 train spread +14.3pp -> test spread +12.8pp (hot n=1357, cold n=1338)
+  fold 3 test from 2026-04-25: compression_q25_75 train spread +13.8pp -> test spread +13.7pp (hot n=1301, cold n=1191)
+  fold 4 test from 2026-05-25: compression_q25_75 train spread +14.1pp -> test spread +11.4pp (hot n=1355, cold n=1231)
+  fold 5 test from 2026-06-24: compression_q25_75 train spread +12.6pp -> test spread +22.0pp (hot n=1453, cold n=1340)
+  fold 6 test from 2026-07-24: compression_q25_75 train spread +15.9pp -> test spread +16.9pp (hot n=1372, cold n=1290)
+  fold 7 test from 2026-08-23: compression_q25_75 train spread +16.8pp -> test spread +19.0pp (hot n=1457, cold n=1321)
+  fold 8 test from 2026-09-22: compression_q25_75 train spread +19.3pp -> test spread +16.5pp (hot n=1432, cold n=1263)
+Pooled out-of-sample: unconditional rate 16.6% (n=52245); selected hot 25.5% vs cold 9.8% spread +15.7pp (thinned n=4190+3797, z +19.42); baseline flag 28.6% vs 15.2% spread +13.4pp (z +15.69).
+Selection stability: compression_q25_75 x9 (1 distinct variant(s) over 9 folds)
+Most-selected variant compression_q25_75 (descriptive, full sample):
+  low  n=15943  expansion 10.2%  reversal-among-expansions 1.9%  prior-momentum continued 49.3%  mean excursion 1.21 ATR
+  mid  n=31845  expansion 15.4%  reversal-among-expansions 2.4%  prior-momentum continued 48.8%  mean excursion 1.38 ATR
+  high n=16620  expansion 25.0%  reversal-among-expansions 4.1%  prior-momentum continued 48.5%  mean excursion 1.66 ATR
+  expansion % by month (low/mid/high): 2025-10:15/14/20  2025-11:11/15/21  2025-12:13/16/24  2026-01:10/16/27  2026-02:10/15/21  2026-03:12/15/27  2026-04:10/17/24  2026-05:13/16/23  2026-06:9/15/23  2026-07:7/15/28  2026-08:9/16/27  2026-09:9/15/26  2026-10:8/13/28
+Criteria (all must pass to justify further regime research):
+  [PASS] out_of_sample_separation: pooled thinned z=19.42 (needs >= 2)
+  [PASS] fold_consistency: 9/9 folds kept the train-chosen direction (needs >= 67%)
+  [PASS] beats_simple_baseline: selected OOS spread +15.7pp vs baseline flag +13.4pp (needs a margin of +2.0pp; baseline z=15.69)
+  [FAIL] usable_duration: median regime run 3 candles (needs >= 6, so a label outlasts the evaluation horizon)
+Regime labelling did NOT pass every criterion; it is not yet justified as a basis for strategy research.
+limitations:
+  - Single instrument (XAUUSDm), single timeframe (M5), roughly one year; regimes may not generalise.
+  - No spread or execution data, so nothing here concerns tradeable outcomes.
+  - Expansion is ATR-normalised, so ATR-level regimes interact with the outcome definition itself.
+  - Neighbouring rows share forward windows; significance uses rows thinned to one per horizon, folds are few and dependent, and several variants were tried (selection is repeated per fold).
+  - States are relative to each candle's own past (expanding percentiles), not absolute market regimes; a separation of expansion rates does not show a genuine regime or a tradeable edge.
+  - Rolling windows require contiguous candles (gaps are not filled); features taken from the existing predictors inherit their gap behaviour.
+
+== liquidity_structure [ok] ==
+64 definitions, 9 fold(s); pooled OOS aligned-excess z +0.56; does not pass the stated criteria.
+Outcome = expansion of 2 ATR; 'aligned' = expansion in the event's implied direction; 'excess' = aligned minus the unconditional rate of the same direction (FUTURE labels, evaluation only). Definitions tried: 64.
+Cross-check, reference definition vs research.liquidity_sweeps: IDENTICAL (1674091 events).
+Reference (existing) definition, candle x live-swing pairs, never merged: wick crossings=333132598 close-beyond=331457819 exact touches=696 sweeps(wick cross, close back inside)=1674091; candles with a sweep in the last 12: 99.6%; mean live swings per candle 9509.2.
+Swing lifetime and repeat policy, structure 2x2 strict, no penetration filter:
+  lifetime  repeats  events  active%  live/candle  excess(15 min)  z
+  1h        all     18994   84%      3.1          +0.0pp         -1.28
+  1h        first   8808    80%      2.3          +0.0pp         -0.50
+  4h        all     53904   95%      12.2         +0.6pp         -1.89
+  4h        first   13152   89%      5.7          +0.7pp         +0.39
+  24h       all     150403  97%      65.8         +1.0pp         -0.22
+  24h       first   16087   93%      15.1         +1.1pp         +0.77
+  unlimited all     1674091 100%     9509.2       +1.2pp         +0.88
+  unlimited first   18588   95%      214.0        +1.6pp         +2.29
+Sensitivity of full-sample excess across all tested definitions, by swing structure (descriptive):
+  2x2 strict    definitions=16 events 6188-1674091 excess min +0.0pp median +1.2pp max +2.5pp
+  2x2 inclusive definitions=16 events 6196-1676122 excess min +0.0pp median +1.2pp max +2.5pp
+  3x3 strict    definitions=16 events 3959-1187726 excess min -0.0pp median +1.3pp max +2.3pp
+  5x5 strict    definitions=16 events 2042-744557 excess min -0.2pp median +1.4pp max +2.4pp
+Existing definition (sw2x2_str_lifeunlimited_all_pen0), full sample, descriptive:
+  5 min                        n=1671115 thin=67693  expansion 3.3% (base 2.5%)  aligned 1.8% vs expected 1.3% against 1.4% both 0.0% excess +0.6pp z +1.26  outcomes c/r/rev 45502/7485/910
+  15 min                       n=1663339 thin=22752  expansion 18.4% (base 16.6%)  aligned 9.5% vs expected 8.3% against 8.8% both 0.1% excess +1.2pp z +0.88  outcomes c/r/rev 244692/49906/11224
+  30 min                       n=1652969 thin=11340  expansion 39.4% (base 37.6%)  aligned 20.0% vs expected 18.8% against 19.4% both 0.1% excess +1.2pp z +0.25  outcomes c/r/rev 469403/134141/46561
+  event combinations at 15 min (neutral categories, not MSS/CHOCH):
+  sweep                        n=1663339 thin=22752  expansion 18.4% (base 16.6%)  aligned 9.5% vs expected 8.3% against 8.8% both 0.1% excess +1.2pp z +0.88  outcomes c/r/rev 244692/49906/11224
+  sweep_with_prior_break       n=1552828 thin=21338  expansion 18.7% (base 16.6%)  aligned 9.7% vs expected 8.3% against 9.0% both 0.1% excess +1.4pp z +0.74  outcomes c/r/rev 231054/47466/11070
+  break                        n=18417   thin=8036   expansion 24.5% (base 16.6%)  aligned 14.1% vs expected 8.3% against 10.3% both 0.1% excess +5.8pp z +10.75  outcomes c/r/rev 3423/838/234
+  break_after_opposite_sweep   n=18283   thin=7945   expansion 24.5% (base 16.6%)  aligned 14.2% vs expected 8.3% against 10.2% both 0.1% excess +5.8pp z +10.78  outcomes c/r/rev 3393/832/233
+  break_without_recent_sweep   n=134     thin=93     expansion 27.6% (base 16.6%)  aligned 10.4% vs expected 8.0% against 17.2% both 0.0% excess +2.5pp z +0.21  outcomes c/r/rev 30/6/1
+  by penetration (excess, n): 0.25-0.5 +0.7pp (442647) | >0.5 +3.7pp (512148) | 0.1-0.25 -0.0pp (392951) | <=0.1 ATR -0.4pp (315593)
+  by age (excess, n): <1h +0.0pp (18757) | 1-4h +1.0pp (34596) | 4-24h +1.2pp (95869) | >=24h +1.3pp (1514117)
+  by repeat (excess, n): first +1.6pp (18420) | second +1.5pp (18297) | third+ +1.2pp (1626622)
+  by prominence (excess, n): 2-4 +1.2pp (991424) | n/a +0.9pp (443) | >=4 +1.3pp (338743) | 1-2 +1.2pp (329802) | <1 ATR +1.9pp (2927)
+  by month (excess, n): 2025-10:+2.2pp(5174) 2025-11:+0.6pp(50152) 2025-12:+2.1pp(61295) 2026-01:+0.9pp(33682) 2026-02:+0.6pp(66292) 2026-03:+1.7pp(142209) 2026-04:+1.0pp(92545) 2026-05:+1.2pp(159367) 2026-06:+1.2pp(191208) 2026-07:+1.1pp(207374) 2026-08:+2.0pp(192280) 2026-09:+1.0pp(248591) 2026-10:+1.0pp(213170)
+  by volatility regime (excess, n): contracting:-1.9pp(507675) expanding:+6.4pp(374538) normal:+0.8pp(781126)
+Most-selected definition (sw5x5_str_life1h_first_pen0.25), full sample, descriptive:
+  5 min                        n=2037    thin=1994   expansion 3.1% (base 2.5%)  aligned 1.6% vs expected 1.2% against 1.5% both 0.0% excess +0.4pp z +1.63  outcomes c/r/rev 57/6/0
+  15 min                       n=2028    thin=1938   expansion 19.3% (base 16.6%)  aligned 9.7% vs expected 8.3% against 9.7% both 0.0% excess +1.4pp z +2.02  outcomes c/r/rev 313/69/10
+  30 min                       n=2004    thin=1819   expansion 42.1% (base 37.6%)  aligned 20.9% vs expected 18.7% against 21.2% both 0.0% excess +2.2pp z +1.96  outcomes c/r/rev 605/182/57
+  event combinations at 15 min (neutral categories, not MSS/CHOCH):
+  sweep                        n=2028    thin=1938   expansion 19.3% (base 16.6%)  aligned 9.7% vs expected 8.3% against 9.7% both 0.0% excess +1.4pp z +2.02  outcomes c/r/rev 313/69/10
+  sweep_with_prior_break       n=1586    thin=1516   expansion 19.7% (base 16.6%)  aligned 10.0% vs expected 8.3% against 9.7% both 0.0% excess +1.7pp z +2.26  outcomes c/r/rev 249/54/9
+  break                        n=8282    thin=4438   expansion 26.8% (base 16.6%)  aligned 15.6% vs expected 8.3% against 11.1% both 0.0% excess +7.3pp z +12.79  outcomes c/r/rev 1677/416/120
+  break_after_opposite_sweep   n=1129    thin=629    expansion 23.9% (base 16.6%)  aligned 12.9% vs expected 8.3% against 11.0% both 0.0% excess +4.7pp z +3.45  outcomes c/r/rev 199/57/14
+  break_without_recent_sweep   n=7153    thin=3836   expansion 27.2% (base 16.6%)  aligned 16.0% vs expected 8.3% against 11.1% both 0.1% excess +7.7pp z +12.34  outcomes c/r/rev 1478/359/106
+  by penetration (excess, n): 0.25-0.5 -0.3pp (1075) | >0.5 +3.3pp (953)
+  by age (excess, n): <1h +1.4pp (2028)
+  by repeat (excess, n): first +1.4pp (2028)
+  by prominence (excess, n): >=4 -0.1pp (630) | 1-2 +6.7pp (74) | 2-4 +1.8pp (1324)
+  by month (excess, n): 2025-10:-0.7pp(27) 2025-11:+0.2pp(153) 2025-12:+4.9pp(175) 2026-01:+5.4pp(146) 2026-02:+1.0pp(172) 2026-03:+0.2pp(191) 2026-04:+1.3pp(167) 2026-05:+0.1pp(203) 2026-06:-0.9pp(162) 2026-07:+2.6pp(193) 2026-08:-1.9pp(140) 2026-09:+1.7pp(161) 2026-10:+2.5pp(138)
+  by volatility regime (excess, n): contracting:-0.9pp(526) expanding:+5.0pp(439) normal:+1.0pp(1063)
+Chronological walk-forward (9 fold(s); definition and direction chosen on TRAIN events only):
+  fold 0: sw5x5_str_life1h_first_pen0.25 sign +1 train excess +3.5pp -> test oriented excess +0.3pp (test events 179, thinned 169)
+  fold 1: sw5x5_str_life1h_first_pen0.25 sign +1 train excess +3.8pp -> test oriented excess +0.7pp (test events 188, thinned 181)
+  fold 2: sw5x5_str_life1h_first_pen0.25 sign +1 train excess +2.0pp -> test oriented excess +1.8pp (test events 170, thinned 164)
+  fold 3: sw5x5_str_lifeunlimited_first_pen0 sign +1 train excess +1.4pp -> test oriented excess +0.6pp (test events 679, thinned 452)
+  fold 4: sw3x3_str_life1h_first_pen0 sign -1 train excess -1.4pp -> test oriented excess +0.5pp (test events 493, thinned 434)
+  fold 5: sw5x5_str_lifeunlimited_first_pen0 sign +1 train excess +1.6pp -> test oriented excess +3.3pp (test events 743, thinned 500)
+  fold 6: sw5x5_str_lifeunlimited_first_pen0.25 sign +1 train excess +2.3pp -> test oriented excess +0.1pp (test events 685, thinned 420)
+  fold 7: sw5x5_str_lifeunlimited_first_pen0.25 sign +1 train excess +2.1pp -> test oriented excess +0.9pp (test events 663, thinned 401)
+  fold 8: sw5x5_str_life1h_all_pen0 sign -1 train excess -1.6pp -> test oriented excess -1.6pp (test events 571, thinned 376)
+Pooled out-of-sample, selected: events 4371 (thinned 3097) aligned 8.7% vs expected 8.2% z +0.56; existing definition (reversal-aligned, no selection): events 1491438 (thinned 17310) aligned 8.9% vs expected 8.8% z +0.65.
+Selection stability: sw5x5_str_life1h_first_pen0.25 x3, sw5x5_str_lifeunlimited_first_pen0 x2, sw5x5_str_lifeunlimited_first_pen0.25 x2, sw3x3_str_life1h_first_pen0 x1, sw5x5_str_life1h_all_pen0 x1
+Criteria (all must pass to justify further sweep/structure experiments):
+  [FAIL] out_of_sample_excess: pooled thinned z=0.56 (needs >= 2); 64 definitions were tried
+  [PASS] fold_consistency: 8/9 folds kept the train-chosen direction (needs >= 67%)
+  [PASS] sample_size: 3097 thinned pooled test events (needs >= 100)
+  [FAIL] beats_existing_definition: selected OOS excess +0.75pp vs existing unlimited-lifetime definition +1.29pp
+No sweep/structure definition passed every criterion; these events are not yet justified as a basis for a trade candidate.
+Unresolved and NOT tested: sessions/timezone, key levels (e.g. 15:00 New York open), MSS/BMS/BOS/CHOCH, FVG/IFVG, sweep expiry/invalidation, entry, stop, target and trade management. The owner's full sequence has not been tested.
+limitations:
+  - A statistical association with later expansion is not a trade candidate: no executable entry, stop, target, cost or risk rule is defined here.
+  - Single instrument, single timeframe, roughly one year; no spread data.
+  - Many events share candles and forward windows; significance uses events thinned to one per horizon, and 64 definitions were tried, so the best full-sample numbers are optimistically biased.
+  - Break categories use the existing close-basis structural-break definition, which is not MSS/CHOCH.
+  - Swing lifetime is wall-clock time since confirmation; gaps are not filled and no schedule is assumed.
+  - Regime split uses the reporting-only short/long realized-volatility buckets, not a validated model.
+
+== candidate_strategy [ok] ==
+9 fold(s), 1394 out-of-sample trades; gate met but not distinguishable from zero (inconclusive).
+Variants generated: 57  accepted: 56 (selection pool 48, null controls 8)  rejected: 1
+Rejected candidates (incomplete rules are never filled with assumptions):
+  user_sweep_mss_ifvg_keylevel: 12 issue(s), e.g. unresolved: MSS/BMS/BOS/CHOCH confirmation rule; unresolved: original FVG to IFVG transition definition; unresolved: new FVG formation definition
+
+Walk-forward: 9 fold(s), train 90d / test 30d / step 30d, embargo 2:00:00, min train trades 30.
+Costs (placeholders): spread 0.3, slippage/side 0.05, commission/side 0; risk 0.5%, one position.
+  fold 0 test 2026-01-25..2026-02-24 selected=momentum_m1p5_v1p5_s2_t2_h12 train_exp=0.01R test_trades=176 test_exp=-0.02R
+  fold 1 test 2026-02-24..2026-03-26 selected=momentum_m1_v1p5_s2_t2_h12 train_exp=0.01R test_trades=227 test_exp=0.08R
+  fold 2 test 2026-03-26..2026-04-25 selected=momentum_m1p5_v1p5_s2_t2_h12 train_exp=0.03R test_trades=177 test_exp=-0.05R
+  fold 3 test 2026-04-25..2026-05-25 selected=sweep_reversal_c1_s1_t2_h12 train_exp=0.04R test_trades=0 test_exp=n/aR
+  fold 4 test 2026-05-25..2026-06-24 selected=momentum_m1p5_v1p5_s2_t2_h12 train_exp=0.02R test_trades=163 test_exp=-0.01R
+  fold 5 test 2026-06-24..2026-07-24 selected=fade_r1p5_v1p5_s2_t2_h12 train_exp=-0.02R test_trades=219 test_exp=0.02R
+  fold 6 test 2026-07-24..2026-08-23 selected=momentum_m1p5_v1p5_s2_t2_h12 train_exp=0.02R test_trades=151 test_exp=0.10R
+  fold 7 test 2026-08-23..2026-09-22 selected=momentum_m1p5_v1p5_s2_t2_h12 train_exp=0.06R test_trades=148 test_exp=0.04R
+  fold 8 test 2026-09-22..2026-10-22 selected=momentum_m1p5_v1p5_s2_t2_h12 train_exp=0.08R test_trades=133 test_exp=-0.05R
+Pooled out-of-sample: trades=1394 win_rate=43.3% expectancy=0.02R profit_factor=1.03 avg_cost=0.03R max_drawdown=13.0% max_losing_streak=12 trades_spanning_gap=11
+Selection stability: {'momentum_m1p5_v1p5_s2_t2_h12': 6, 'momentum_m1_v1p5_s2_t2_h12': 1, 'sweep_reversal_c1_s1_t2_h12': 1, 'fade_r1p5_v1p5_s2_t2_h12': 1}
+Out-of-sample breakdown (net of placeholder costs):
+  by month: 2026-01: n=48 exp=0.09R pf=1.18  2026-02: n=172 exp=-0.07R pf=0.86  2026-03: n=215 exp=0.12R pf=1.27  2026-04: n=145 exp=-0.09R pf=0.82  2026-05: n=37 exp=0.16R pf=1.43  2026-06: n=177 exp=-0.03R pf=0.93  2026-07: n=213 exp=0.00R pf=1.00  2026-08: n=147 exp=0.10R pf=1.22  2026-09: n=149 exp=0.07R pf=1.16  2026-10: n=91 exp=-0.09R pf=0.85
+  by regime: contracting: n=39 exp=0.32R pf=2.02  expanding: n=852 exp=0.03R pf=1.06  normal: n=503 exp=-0.03R pf=0.94
+Null controls through the same folds: trades=6095 expectancy=-0.04R profit_factor=0.90 max_drawdown=77.8%
+Robustness: expectancy t-statistic 0.54 (needs >= 2 to be distinguishable from zero, ignoring the 57 variants tried); 4/8 traded test folds had positive expectancy.
+
+Promotion gate: placeholder statistical bar met, but the result is NOT distinguishable from zero after costs; treat as inconclusive (candidates stay experimental).
+limitations:
+  - Spread, slippage and commission are placeholders; the CSVs contain no spread.
+  - Entries fill at the next candle open; intrabar order is unknown (stop assumed first when both are touched).
+  - Drawdown uses closed-trade balances only; lot rounding, swaps and margin are not modelled.
+  - 57 variants were considered: expect the best pooled result to be optimistic.
+  - The owner's sweep/MSS/IFVG/key-level hypothesis is not testable until its unresolved definitions are supplied.
+  - Regimes are reporting buckets from a causal volatility ratio, not a validated regime model.
+
